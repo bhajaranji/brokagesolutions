@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brokerage Solutions — Home 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- Left: Logo -->
+      <div class="header-logo">
+        <a href="/" aria-label="Home">
+          <img src="assets/images/logo3.webp" alt="Stackly logo" class="brand-logo">
+        </a>
+      </div>
+
+      <!-- Center: Navigation -->
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+
+          <!-- Home (dropdown) -->
+          <li class="has-dropdown home-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="homeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="homeDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- Pages (NEW dropdown) -->
+          <li class="has-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="pagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="pagesDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+              <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+              <li role="none"><a role="menuitem" href="faq.html">FAQs</a></li>
+              <li role="none"><a role="menuitem" href="privacy.html">Privacy Policy</a></li>
+              <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Login (desktop) -->
+      <div class="header-actions"> 
+  <a href="login.html">
+    <button class="btn login-btn" id="loginBtn">Login</button>
+  </a>
+</div>
+
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- MOBILE PANEL -->
+    <div class="mobile-panel" id="mobileMenu" hidden>
+      <div class="mobile-panel-header">
+        <a href="index.html" aria-label="Home">
+
+        </a>
+        <button class="close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+
+          <!-- MOBILE Home Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mHomeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mHomeDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- MOBILE Pages Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mPagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mPagesDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+
+          <!-- MOBILE Login -->
+         <li class="mobile-login">
+  <a href="login.html">
+    <button class="btn login-btn" id="mobileLogin">Login</button>
+  </a>
+</li>
+
+
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <!-- END HEADER -->
+
+  <!-- END HEADER -->
+
+
+
+  <!-- WHO WE ARE -->
+<section class="who container" id="who">
+  <div class="who-grid">
+    <div class="who-visual" aria-hidden="true">
+      <!-- Illustration: house + people + stackly logo -->
+      <img src="assets/images/about.webp" alt="Illustration: people and a house with Stackly logo" class="who-img">
+    </div>
+
+    <div class="who-content">
+      <h2 class="section-title">Who we are</h2>
+      <p class="who-lead">
+        Stackly is a modern brokerage solutions company — we combine local market expertise with easy-to-use technology
+        so buyers, sellers and landlords can transact with confidence. We verify listings, standardize paperwork, and
+        keep brokerage transparent.
+      </p>
+
+      <ul class="who-features">
+        <li><strong>Verified listings</strong> — every property is checked by our field team.</li>
+        <li><strong>Transparent fees</strong> — clear brokerage plans, no surprise costs.</li>
+        <li><strong>End-to-end support</strong> — from viewing to paperwork and handover.</li>
+      </ul>
+
+      <div class="who-ctas">
+        <a href="404page.html" class="btn primary">Explore Services</a>
+        <a href="404page.html" class="btn ghost">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="about-section">
+    
+    <div class="about-content fade-up">
+      <h2>About Our Company</h2>
+      <p>
+        We deliver modern business solutions with high quality and innovation.
+        Our focus is on customer satisfaction, professionalism, and growth.
+      </p>
+      <p>
+        With years of experience, we help companies scale with proper technology,
+        guidance, and professional service.
+      </p>
+    </div>
+
+    <div class="about-image fade-right">
+      <img src="assets/images/about2.webp" alt="About Us" />
+    </div>
+
+  </section>
+
+
+
+  <section class="mission-section">
+
+  <div class="mission-card fade-up">
+    <h3>Our Mission</h3>
+    <p>
+      Our mission is to empower businesses by providing reliable, innovative,
+      and scalable digital solutions that improve efficiency and growth.
+    </p>
+  </div>
+
+  <div class="mission-card fade-up">
+    <h3>Our Vision</h3>
+    <p>
+      Our vision is to become a global leader in delivering smart technology 
+      that transforms businesses and makes their digital journey seamless.
+    </p>
+  </div>
+
+</section>
+
+
+
+
+
+<section class="why-section">
+
+  <div class="why-image fade-left">
+    <!-- Replace src with your image when you add it -->
+    <img src="assets/images/stackly.webp" alt="Why choose us image" />
+  </div>
+
+  <div class="why-content fade-up">
+    <h2>Why Choose Us</h2>
+    <p>
+      We combine deep domain expertise with modern technology to deliver solutions
+      that are reliable, scalable, and focused on real business outcomes.
+    </p>
+
+    <ul class="why-list">
+      <li>
+        <span class="tick" aria-hidden="true">✔</span>
+        <strong>Proven Results</strong> — measurable improvements for every client.
+      </li>
+
+      <li>
+        <span class="tick" aria-hidden="true">✔</span>
+        <strong>Expert Team</strong> — experienced engineers & consultants.
+      </li>
+
+      <li>
+        <span class="tick" aria-hidden="true">✔</span>
+        <strong>Flexible Engagements</strong> — from discovery to full delivery.
+      </li>
+
+      <li>
+        <span class="tick" aria-hidden="true">✔</span>
+        <strong>Customer-first</strong> — clear communication & fast support.
+      </li>
+    </ul>
+
+    <a class="cta-btn" href="#contact">Talk to Us</a>
+  </div>
+
+</section>
+
+
+
+
+<section class="team-section">
+
+  <h2 class="team-title fade-up">Meet Our Team</h2>
+
+  <div class="team-grid">
+
+    <!-- Team Member 1 -->
+    <div class="team-card fade-up">
+      <img src="assets/images/team5.webp" alt="Team Member 1">
+      <h3>Rahul Sharma</h3>
+      <p>Project Manager</p>
+
+     
+    </div>
+
+    <!-- Team Member 2 -->
+    <div class="team-card fade-up">
+      <img src="assets/images/team3.webp" alt="Team Member 2">
+      <h3>Aisha Khan</h3>
+      <p>UI/UX Designer</p>
+
+    </div>
+
+    <!-- Team Member 3 -->
+    <div class="team-card fade-up">
+      <img src="assets/images/team8.webp" alt="Team Member 3">
+      <h3>Rohit Verma</h3>
+      <p>Backend Engineer</p>
+
+    </div>
+
+    <!-- Team Member 4 -->
+    <div class="team-card fade-up">
+      <img src="assets/images/team6.webp" alt="Team Member 4">
+      <h3>Sneha Patel</h3>
+      <p>Frontend Developer</p>
+
+     
+    </div>
+
+    <!-- Team Member 5 -->
+    <div class="team-card fade-up">
+      <img src="assets/images/team7.webp" alt="Team Member 5">
+      <h3>Arjun Mehta</h3>
+      <p>Marketing Head</p>
+
+      
+    </div>
+
+    <!-- Team Member 6 -->
+    <div class="team-card fade-up">
+      <img src="assets/images/team10.webp" alt="Team Member 6">
+      <h3>Priya Nair</h3>
+      <p>Business Analyst</p>
+
+     
+    </div>
+
+  </div>
+</section>
+
+
+
+<marquee class="logo-marquee" direction="left" scrollamount="7">
+  <img src="assets/images/marque1.webp">
+  <img src="assets/images/marque2.webp">
+  <img src="assets/images/marque3.webp">
+  <img src="assets/images/marque4.webp">
+  <img src="assets/images/marque5.webp">
+  <img src="assets/images/marque6.webp">
+  <img src="assets/images/marque7.webp">
+  <img src="assets/images/marque3.webp">
+  <img src="assets/images/marque4.webp">
+  <img src="assets/images/marque2.webp">
+</marquee>
+
+
+
+
+
+
+
+
+  
+
+
+  <!-- START FOOTER (replace existing footer block) -->
+<footer class="site-footer broker-footer" role="contentinfo">
+  <div class="container footer-wrap">
+    <div class="footer-col footer-brand">
+      <a href="/" class="footer-logo-link" aria-label="Stackly home">
+        <img src="assets/images/logo3.webp" alt="Stackly logo" class="footer-logo">
+      </a>
+      <p class="footer-desc">
+        Stackly — Brokerage Solutions. We simplify property transactions with technology-driven brokerage services,
+        verified listings and end-to-end support for buyers, sellers and landlords.
+      </p>
+    </div>
+
+    <div class="footer-col footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-services">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="brokage.html">Brokerage Solutions</a></li>
+        <li><a href="properties.html">Property Management</a></li>
+        <li><a href="404page.html">Tenant Verification</a></li>
+        <li><a href="404page.html">Documentation Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-news">
+      <h4>Stay Connected</h4>
+      <p class="muted">Subscribe to our newsletter for market updates, new listings and offers — no spam.</p>
+
+      <form id="footerNewsletterForm" class="footer-news-form" novalidate>
+        <label for="footerNewsletterEmail" class="sr-only">Email address</label>
+        <div class="input-row">
+          <input id="footerNewsletterEmail" name="email" type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn subscribe-btn" aria-label="Subscribe">→</button>
+        </div>
+        <div id="footerNewsletterMsg" class="footer-news-msg" aria-live="polite"></div>
+      </form>
+
+      <div class="footer-socials">
+        <a href="404page.html" aria-label="Facebook" class="social-btn">f</a>
+        <a href="404page.html" aria-label="Twitter"  class="social-btn">t</a>
+        <a href="404page.html" aria-label="Instagram" class="social-btn">ig</a>
+        <a href="404page.html" aria-label="LinkedIn" class="social-btn">in</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div class="copyright">© <span id="footerYear"></span> Stackly Brokerage Solutions. All rights reserved.</div>
+      <div class="madeby">Built with care • Stackly</div>
+    </div>
+  </div>
+</footer>
+<!-- END FOOTER -->
+<!-- END FOOTER -->
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brokerage Solutions — Home 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- Left: Logo -->
+      <div class="header-logo">
+        <a href="/" aria-label="Home">
+          <img src="assets/images/logo3.webp" alt="Stackly logo" class="brand-logo">
+        </a>
+      </div>
+
+      <!-- Center: Navigation -->
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+
+          <!-- Home (dropdown) -->
+          <li class="has-dropdown home-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="homeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="homeDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- Pages (NEW dropdown) -->
+          <li class="has-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="pagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="pagesDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+              <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+              <li role="none"><a role="menuitem" href="faq.html">FAQs</a></li>
+              <li role="none"><a role="menuitem" href="privacy.html">Privacy Policy</a></li>
+              <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Login (desktop) -->
+      <div class="header-actions"> 
+  <a href="login.html">
+    <button class="btn login-btn" id="loginBtn">Login</button>
+  </a>
+</div>
+
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- MOBILE PANEL -->
+    <div class="mobile-panel" id="mobileMenu" hidden>
+      <div class="mobile-panel-header">
+        <a href="index.html" aria-label="Home">
+
+        </a>
+        <button class="close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+
+          <!-- MOBILE Home Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mHomeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mHomeDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- MOBILE Pages Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mPagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mPagesDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+
+          <!-- MOBILE Login -->
+              <li class="mobile-login">
+  <a href="login.html">
+    <button class="btn login-btn" id="mobileLogin">Login</button>
+  </a>
+</li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <!-- END HEADER -->
+
+  <!-- END HEADER -->
+
+
+
+  <section class="services-intro">
+  <div class="services-intro-container">
+
+    <div class="intro-text">
+      <h5>OUR SERVICES</h5>
+      <h2>Smart Brokerage Solutions for Modern Property Needs</h2>
+      <p>
+        At Stackly, we simplify the entire property journey — from searching to closing.
+        Experience fast, transparent, and secure brokerage services designed for you.
+      </p>
+
+      <div class="intro-highlights">
+        <div class="highlight-box">
+          <h3>1500+ Clients</h3>
+          <p>Trusted by property seekers and owners.</p>
+        </div>
+
+        <div class="highlight-box">
+          <h3>98% Success Rate</h3>
+          <p>Fast and accurate property matching.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- You can add your own image -->
+    <div class="intro-image">
+      <img src="assets/images/services.webp" alt="Stackly Services Intro">
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="services-hero">
+  <div class="services-hero-container">
+
+    <div class="hero-left">
+      <h5>STACKLY SERVICES</h5>
+      <h1>Your Trusted Partner in Smart Property Brokerage</h1>
+      <p>
+        From renting to buying, we offer fast, transparent, and reliable 
+        brokerage services designed for today's customers.
+      </p>
+
+      <a href="404page.html" class="hero-btn">Explore Services</a>
+    </div>
+
+    <div class="hero-right">
+      <img src="assets/images/services2.webp" alt="Stackly Services">
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ====== SERVICES GRID (6 cards) ====== -->
+<section id="services" class="services-section">
+  <div class="container">
+    <div class="services-head">
+      <h5>OUR SERVICES</h5>
+      <h2>Core Brokerage Services</h2>
+      <p class="lead">Comprehensive solutions to buy, sell, rent and manage properties — tailored for modern customers.</p>
+    </div>
+
+    <div class="services-grid" role="list" aria-label="Stackly services list">
+
+      <!-- Card 1 -->
+      <article class="service-card" role="listitem" tabindex="0" aria-labelledby="s1-title">
+        <div class="service-media">
+  <img src="assets/images/grid.webp" alt="">
+</div>
+
+        <h3 id="s1-title">Property Consulting</h3>
+        <p>Personalised guidance from local experts to help you make confident property decisions.</p>
+        <a class="service-link" href="404page.html">Learn more</a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="service-card" role="listitem" tabindex="0" aria-labelledby="s2-title">
+        <div class="service-media">
+  <img src="assets/images/grid2.webp" alt="">
+</div>
+
+        <h3 id="s2-title">Rental Assistance</h3>
+        <p>Verified rental listings, tenant screening and move-in support to reduce hassles.</p>
+        <a class="service-link" href="404page.html">Find rentals</a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="service-card" role="listitem" tabindex="0" aria-labelledby="s3-title">
+        <div class="service-media">
+  <img src="assets/images/grid3.webp" alt="">
+</div>
+
+        <h3 id="s3-title">Buy & Sell</h3>
+        <p>Seamless property transactions with transparent pricing and dedicated support.</p>
+        <a class="service-link" href="404page.html">Sell with us</a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="service-card" role="listitem" tabindex="0" aria-labelledby="s4-title">
+        <div class="service-media">
+  <img src="assets/images/grid4.webp" alt="">
+</div>
+
+        <h3 id="s4-title">Home Loan Support</h3>
+        <p>Compare lenders, get pre-approvals and simplify your loan paperwork with our partners.</p>
+        <a class="service-link" href="404page.html">Get pre-approved</a>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="service-card" role="listitem" tabindex="0" aria-labelledby="s5-title">
+        <div class="service-media">
+  <img src="assets/images/grid5.webp" alt="">
+</div>
+
+        <h3 id="s5-title">Document Verification</h3>
+        <p>Professional verification to ensure safe, legal and trustworthy transactions.</p>
+        <a class="service-link" href="404page.html">Verify docs</a>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="service-card" role="listitem" tabindex="0" aria-labelledby="s6-title">
+        <div class="service-media">
+  <img src="assets/images/stackly.webp" alt="">
+</div>
+
+        <h3 id="s6-title">Property Management</h3>
+        <p>Full-service property management — tenant support, maintenance and monthly reporting.</p>
+        <a class="service-link" href="404page.html">Start managing</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- START FOOTER (replace existing footer block) -->
+<footer class="site-footer broker-footer" role="contentinfo">
+  <div class="container footer-wrap">
+    <div class="footer-col footer-brand">
+      <a href="/" class="footer-logo-link" aria-label="Stackly home">
+        <img src="assets/images/logo3.webp" alt="Stackly logo" class="footer-logo">
+      </a>
+      <p class="footer-desc">
+        Stackly — Brokerage Solutions. We simplify property transactions with technology-driven brokerage services,
+        verified listings and end-to-end support for buyers, sellers and landlords.
+      </p>
+    </div>
+
+    <div class="footer-col footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-services">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="brokage.html">Brokerage Solutions</a></li>
+        <li><a href="properties.html">Property Management</a></li>
+        <li><a href="404page.html">Tenant Verification</a></li>
+        <li><a href="404page.html">Documentation Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-news">
+      <h4>Stay Connected</h4>
+      <p class="muted">Subscribe to our newsletter for market updates, new listings and offers — no spam.</p>
+
+      <form id="footerNewsletterForm" class="footer-news-form" novalidate>
+        <label for="footerNewsletterEmail" class="sr-only">Email address</label>
+        <div class="input-row">
+          <input id="footerNewsletterEmail" name="email" type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn subscribe-btn" aria-label="Subscribe">→</button>
+        </div>
+        <div id="footerNewsletterMsg" class="footer-news-msg" aria-live="polite"></div>
+      </form>
+
+      <div class="footer-socials">
+        <a href="404page.html" aria-label="Facebook" class="social-btn">f</a>
+        <a href="404page.html" aria-label="Twitter"  class="social-btn">t</a>
+        <a href="404page.html" aria-label="Instagram" class="social-btn">ig</a>
+        <a href="404page.html" aria-label="LinkedIn" class="social-btn">in</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div class="copyright">© <span id="footerYear"></span> Stackly Brokerage Solutions. All rights reserved.</div>
+      <div class="madeby">Built with care • Stackly</div>
+    </div>
+  </div>
+</footer>
+<!-- END FOOTER -->
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+</body>
+</html>

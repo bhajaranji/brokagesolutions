@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stackly — Paper & Packaging Technology</title>
+  <link rel="icon" href="assets/iamges/logo1.webp" type="image/png">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-container">
+    <!-- Logo -->
+    <a class="logo" href="index.html" aria-label="Stackly Home">
+      <img src="assets/images/logo3.webp" alt="Stackly logo">
+    </a>
+
+    <!-- Desktop nav (visible ≥900px) -->
+    <nav class="nav-desktop desktop-only" aria-label="Primary">
+      <ul class="nav-list">
+        <li class="dropdown">
+          <a href="home1.html" class="dropbtn">Home ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="index.html">home1</a></li>
+          </ul>
+        </li>
+        <li><a href="services2.html">Services</a></li>
+
+        <li><a href="about2.html">About Us</a></li>
+        <li><a href="blog2.html">Blog</a></li>
+        <li><a href="contact2.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <a href="404page.html" class="btn neon desktop-only">Explore More</a>
+
+    <!-- Hamburger (visible <900px) -->
+    <button id="hamburger" class="hamburger mobile-only" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile overlay nav -->
+  <nav id="site-nav" class="site-nav mobile-only" aria-label="Primary" aria-hidden="true">
+    <button class="nav-close" id="nav-close" aria-label="Close menu">✕</button>
+    <ul class="nav-overlay-list">
+      <li class="dropdown">
+        <a href="home1.html" class="dropbtn">Home ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="index.html">home1</a></li>
+        </ul>
+      </li>
+      <li><a href="services2.html">Services</a></li>
+      <li><a href="about2.html">About Us</a></li>
+      <li><a href="blog2.html">Blog</a></li>
+      <li><a href="contact2.html">Contact</a></li>
+      <li><a href="404page.html" class="btn neon">Explore More</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+<!-- ==========================
+     PAGE HERO SECTION (Image change one by one)
+=========================== -->
+<section class="page-hero">
+  <div class="page-hero-overlay"></div>
+
+  <!-- Images -->
+  <img src="assets/images/broker10.webp" alt="Banner 1" class="page-hero-bg active">
+  <img src="assets/images/broker14.webp" alt="Banner 2" class="page-hero-bg">
+  <img src="assets/images/broker15.webp" alt="Banner 3" class="page-hero-bg">
+
+  <!-- Text Content -->
+  <div class="page-hero-content">
+    <h1>SERVICES</h1>
+    <p>Home > SERVICES</p>
+  </div>
+</section>
+
+
+<!-- ==========================
+     OUR FEATURES SECTION
+=========================== -->
+<section class="features-section">
+  <div class="features-container">
+
+    <!-- Heading Row -->
+    <div class="features-header">
+      <h2>Our Features</h2>
+    </div>
+
+    <!-- Feature Grid -->
+    <div class="features-grid">
+
+      <!-- Feature 1 -->
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <h3>Smart Property Insights</h3>
+        <p>Real-time market analysis that helps clients make confident decisions while exploring ideal properties.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="fa-solid fa-file-signature"></i></div>
+        <h3>Verified Documentation</h3>
+        <p>End-to-end paperwork support including verification, legal checks, and seamless transaction processing.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Expert Negotiation</h3>
+        <p>Experienced negotiators secure the best prices for buyers, sellers, and investors with total transparency.</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="fa-solid fa-building-circle-check"></i></div>
+        <h3>Residential & Commercial</h3>
+        <p>Specialized guidance for home seekers and business investors covering all property types and budgets.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ==========================
+     OUR SERVICES SECTION
+=========================== -->
+<section class="our-services">
+  <div class="services-container">
+    
+    <!-- Heading -->
+    <div class="services-header">
+      <h2>Our Services</h2>
+      <p>Your trusted partner for Residential, Commercial, and Investment-based brokerage solutions</p>
+    </div>
+
+    <!-- Grid -->
+    <div class="services-grid">
+
+      <!-- SERVICE 1 -->
+      <div class="service-card">
+        <img src="assets/images/broker1.webp" alt="Property Buying Support">
+        <h3>Buyer Assistance</h3>
+        <p>We help clients find the ideal property with verified listings, market insights, and step-by-step buying guidance.</p>
+        <a href="404page.html" class="service-btn">Read More</a>
+      </div>
+
+      <!-- SERVICE 2 -->
+      <div class="service-card">
+        <img src="assets/images/broker2.webp" alt="Property Selling Support">
+        <h3>Seller Representation</h3>
+        <p>Our team manages pricing, marketing, and negotiation to help sellers receive the best value quickly and securely.</p>
+        <a href="404page.html" class="service-btn">Read More</a>
+      </div>
+
+      <!-- SERVICE 3 -->
+      <div class="service-card">
+        <img src="assets/images/broker3.webp" alt="Rental & Leasing">
+        <h3>Rental & Leasing</h3>
+        <p>From tenant screening to agreement assistance, we ensure smooth and hassle-free rental and leasing experiences.</p>
+        <a href="404page.html" class="service-btn">Read More</a>
+      </div>
+
+      <!-- SERVICE 4 -->
+      <div class="service-card">
+        <img src="assets/images/broker4.webp" alt="Commercial Brokerage">
+        <h3>Commercial Brokerage</h3>
+        <p>We assist businesses with office spaces, retail units, and commercial investments tailored to long-term growth needs.</p>
+        <a href="404page.html" class="service-btn">Read More</a>
+      </div>
+
+      <!-- SERVICE 5 -->
+      <div class="service-card">
+        <img src="assets/images/broker5.webp" alt="Investment Advisory">
+        <h3>Investment Advisory</h3>
+        <p>Get guidance on high-return investment properties with data-backed predictions and expert portfolio planning.</p>
+        <a href="404page.html" class="service-btn">Read More</a>
+      </div>
+
+      <!-- SERVICE 6 -->
+      <div class="service-card">
+        <img src="assets/images/broker6.webp" alt="Documentation Assistance">
+        <h3>Documentation Assistance</h3>
+        <p>We handle verification, paperwork, agreements, and legal coordination to ensure smooth and secure transactions.</p>
+        <a href="404page.html" class="service-btn">Read More</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="pricing-header">
+    <p class="pricing-subtitle">Our Pricing</p>
+    <h2 class="pricing-title">Flexible Brokerage Plans</h2>
+    <p class="pricing-desc">
+      Transparent, scalable pricing created for home buyers, property sellers, and real estate investors.
+      Choose a plan that matches your needs, budget, and long-term goals.
+    </p>
+  </div>
+
+  <div class="pricing-cards">
+
+    <!-- BUYER PLAN -->
+    <div class="pricing-card">
+      <div class="pricing-top">
+        <div class="icon">🏠</div>
+        <h3>Buyer Assistance Plan</h3>
+        <p>Perfect for first-time homebuyers and individuals searching for trusted guidance.</p>
+        <h2>$99 <span>/ month</span></h2>
+      </div>
+      <ul class="features">
+        <li>✓ Verified Property Listings</li>
+        <li>✓ Neighborhood & Market Insights</li>
+        <li>✓ Property Shortlisting Support</li>
+        <li>✓ Dedicated Advisor Assistance</li>
+      </ul>
+      <a href="404page.html" class="btn-pricing">View More</a>
+    </div>
+
+    <!-- PREMIUM PLAN (ACTIVE) -->
+    <div class="pricing-card active">
+      <div class="pricing-top">
+        <div class="icon">🏢</div>
+        <h3>Seller & Marketing Plan</h3>
+        <p>Ideal for homeowners and property owners seeking faster and high-value sales.</p>
+        <h2>$199 <span>/ month</span></h2>
+      </div>
+      <ul class="features">
+        <li>✓ Property Valuation & Pricing Strategy</li>
+        <li>✓ Professional Listing & Marketing</li>
+        <li>✓ Lead Management & Follow-ups</li>
+        <li>✓ Expert Negotiation Support</li>
+      </ul>
+      <a href="404page.html" class="btn-pricing dark">View More</a>
+    </div>
+
+    <!-- INVESTOR PLAN -->
+    <div class="pricing-card">
+      <div class="pricing-top">
+        <div class="icon">💼</div>
+        <h3>Investor Advantage Pack</h3>
+        <p>Best for investors looking for high-return portfolios and property expansion.</p>
+        <h2>$299 <span>/ month</span></h2>
+      </div>
+      <ul class="features">
+        <li>✓ Investment Property Shortlisting</li>
+        <li>✓ ROI Analysis & Growth Forecasting</li>
+        <li>✓ Commercial & Residential Mix Options</li>
+        <li>✓ End-to-End Transaction Support</li>
+      </ul>
+      <a href="404page.html" class="btn-pricing">View More</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- =======================
+         FOOTER
+======================= -->
+<footer class="footer reveal">
+  <div class="footer-container">
+
+    <!-- 1. Brand Column -->
+    <div class="footer-col footer-brand reveal">
+      <a href="index.html" class="footer-logo">
+        <img src="assets/images/logo3.webp" alt="Stackly Logo">
+     
+      </a>
+      <p>We design premium paper and packaging experiences built for impact.
+With deep industry expertise and precision engineering, we help your products stand out and your operations scale.</p>
+    </div>
+
+    <!-- 2. Quick Links -->
+    <div class="footer-col reveal">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="home2.html">Home</a></li>
+        <li><a href="about2.html">About Us</a></li>
+        <li><a href="services2.html">Services</a></li>
+        <li><a href="blog2.html">Blog</a></li>
+        <li><a href="contact2.html">Contact</a></li>
+      </ul>
+    </div>
+
+    
+    <!-- 3. Services -->
+    <div class="footer-col reveal">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="404page.html">FreshLock Food Packaging</a></li>
+        <li><a href="404page.html">Zero-Leak Container Systems</a></li>
+        <li><a href="404page.html">
+BrandCraft Food Packaging</a></li>
+        <li><a href="404page.html">AutoShield Component Packs</a></li>
+        <li><a href="404page.html">PrecisionFit Insert Engineering</a></li>
+        <li><a href="404page.html">HeavyLoad Export Packaging</a></li>
+      </ul>
+    </div>
+
+
+    <!-- 4. Newsletter / Contact -->
+    <div class="footer-col reveal">
+      <h4>Stay Connected</h4>
+      <p>Subscribe to our newsletter to get the latest digital trends and insights.</p>
+      <form class="footer-newsletter" onsubmit="event.preventDefault(); window.location.href='404page.html';">
+  <input type="email" placeholder="Enter your email" required>
+  <button type="submit">
+    <i class="fa-solid fa-paper-plane"></i>
+  </button>
+</form>
+
+
+      <div class="social-links">
+        <a href="404page.html"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404page.html"><i class="fa-brands fa-twitter"></i></a>
+        <a href="404page.html"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404page.html"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom reveal">
+    <p>© 2025 Stackly Digital Agency | All Rights Reserved | <a href="#">Privacy Policy</a></p>
+  </div>
+</footer>
+
+
+
+
+<script>
+
+  const heroImages = document.querySelectorAll('.page-hero-bg');
+  let current = 0;
+
+  function showNextImage() {
+    heroImages[current].classList.remove('active');
+    current = (current + 1) % heroImages.length;
+    heroImages[current].classList.add('active');
+  }
+
+  setInterval(showNextImage, 4000); // change image every 4 seconds
+
+
+
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");   // Animate when entering
+      } else {
+        entry.target.classList.remove("active"); // Remove when leaving
+      }
+    });
+  }, { threshold: 0.2 });  // Trigger when 20% of element is visible
+
+  reveals.forEach((el) => observer.observe(el));
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<script src="main.js " defer></script>
+</body>
+</html>

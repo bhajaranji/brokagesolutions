@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Stacklya — Brokerage Dashboard</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="icon" href="assets/iamges/logo1.webp" type="image/png">
+
+  <style>
+    /* ----- Prevent horizontal overflow globally ----- */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    :where(.dash *){ box-sizing:border-box; }
+    .dash{
+      --radius:14px; --gap:14px;
+      /* NEW PALETTE: Brokerage (deep navy + gold + black/white) */
+      --bg: #0d1a29;         /* requested page background */
+      --panel: #0f212c;      /* card / panel */
+      --text: #ffffff;       /* primary text (white) */
+      --muted: #bfc7cc;      /* muted text */
+      --gold: #d4af37;       /* main gold accent */
+      --black: #000000;      /* black */
+      --paper: #fffef9;      /* light paper for labels if needed */
+
+      background:var(--bg); color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      min-height:100svh; display:grid; grid-template-columns:260px 1fr; grid-template-rows:auto 1fr;
+      grid-template-areas:"sidebar header" "sidebar main";
+      min-width:0;
+    }
+
+    /* entrance */
+    .fade-in { opacity:0; transform: translateY(6px); transition:opacity .45s ease, transform .45s ease; }
+    .fade-in.show { opacity:1; transform:none; }
+
+    /* SIDEBAR */
+    .dash__sidebar{ grid-area:sidebar; position:sticky; top:0; height:100svh; padding:18px;
+      background:linear-gradient(180deg,#0c1621,#0d1a29); border-right:1px solid rgba(255,255,255,.03);
+      display:flex; flex-direction:column; gap:14px; transition:transform .28s ease, opacity .28s ease; box-sizing:border-box; }
+    .brand{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.01); }
+    .brand__logo{
+      width:36px;height:36px;border-radius:8px;
+      background:linear-gradient(135deg,var(--gold), #0b0b0b);
+      box-shadow:0 10px 30px rgba(0,0,0,.5);
+      display:grid;place-items:center;font-weight:800;color:var(--black); font-size:16px;
+    }
+    .brand__name{ margin:0; font-size:15px; letter-spacing:.2px; color:var(--paper) }
+    .nav{ display:grid; gap:6px; overflow:auto; max-height:55vh; }
+    .nav a{ display:grid; grid-template-columns:28px 1fr auto; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; text-decoration:none; color:inherit; border:1px solid transparent; transition:background .18s ease, transform .12s ease; }
+    .nav a:hover{ background: rgba(212,175,55,0.06); transform:translateX(4px); }
+    .nav a.is-active{ background:rgba(212,175,55,0.10); border-color:rgba(212,175,55,0.12); box-shadow:0 6px 30px rgba(212,175,55,0.04); }
+    .nav__icon{ width:28px; height:28px; display:grid; place-items:center; border-radius:8px; background:rgba(255,255,255,.02); font-size:12px; color:var(--muted) }
+    .sep{ height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.03),transparent); margin:6px 0; }
+    .sidebar-foot{ margin-top:auto; display:grid; gap:8px; }
+    .sidebar-foot .mini{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.01); border:1px solid rgba(255,255,255,.02); }
+    .btn{ padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.04); background:rgba(255,255,255,.02); color:var(--text); cursor:pointer; transition:transform .12s ease, box-shadow .12s ease; }
+    .btn:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.5); }
+    .btn--brand{ background:linear-gradient(135deg,var(--gold), #000000); border-color:transparent; color:var(--black); font-weight:700; }
+
+    /* collapse */
+    .dash.is-collapsed{ grid-template-columns:84px 1fr; }
+    .dash.is-collapsed .brand__name, .dash.is-collapsed .nav span, .dash.is-collapsed .sidebar-foot .mini strong, .dash.is-collapsed .sidebar-foot .mini small { display:none; }
+
+    /* HEADER */
+    .dash__header{ grid-area:header; display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:10px;
+      padding:14px 18px; border-bottom:1px solid rgba(255,255,255,.03);
+      background:rgba(8,10,12,.35); backdrop-filter:saturate(140%) blur(6px); position:sticky; top:0; z-index:10; box-sizing:border-box; }
+    .search{ display:flex; align-items:center; gap:10px; background:#0f1821; border:1px solid rgba(255,255,255,.03); border-radius:10px; padding:10px 12px; }
+    .search input{ background:transparent; border:0; outline:0; color:var(--text); width:100%; font-size:14px; }
+
+    /* MAIN GRID */
+    .dash__main{ grid-area:main; padding:18px; display:grid; gap:var(--gap); grid-template-columns:repeat(12,1fr); align-content:start; min-width:0; box-sizing:border-box; }
+    .card{ background:var(--panel); border:1px solid rgba(255,255,255,.03); border-radius:var(--radius); padding:16px; box-shadow:0 10px 40px rgba(0,0,0,.5); transition:transform .14s ease, box-shadow .14s ease; min-width:0; }
+    .card:hover{ transform:translateY(-4px); box-shadow:0 18px 50px rgba(0,0,0,.6); }
+    .card__head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+    .card__title{ font-size:13px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+
+    /* KPIs */
+    .kpis{ grid-column:1 / -1; display:grid; grid-template-columns:repeat(4,1fr); gap:var(--gap); }
+    .kpi{ display:grid; gap:8px; min-width:0; }
+    .kpi .value{ font-size:28px; font-weight:800; letter-spacing:-.02em; color:var(--gold); }
+    .kpi .delta{ font-size:12px; color:var(--muted); }
+
+    /* Layout */
+    .chart-lg{ grid-column:span 8; }
+    .chart-sm{ grid-column:span 4; }
+    .table-wrap{ grid-column:span 7; }
+    .activity{ grid-column:span 5; }
+
+    /* Table */
+    table{ width:100%; border-collapse:collapse; font-size:14px; color:var(--text); table-layout:fixed; word-break:break-word; }
+    thead th{ text-align:left; padding:10px; color:var(--muted); border-bottom:1px solid rgba(255,255,255,.03); }
+    tbody td{ padding:12px 10px; border-bottom:1px dashed rgba(255,255,255,.02); overflow-wrap:break-word; }
+    tbody tr:hover{ background:rgba(255,255,255,.01); }
+
+    /* Activity */
+    .timeline{ display:grid; gap:12px; }
+    .tick{ display:grid; grid-template-columns:28px 1fr auto; gap:12px; align-items:center; }
+    .dot{ width:10px;height:10px;border-radius:50%; background:var(--gold); box-shadow:0 0 0 6px rgba(212,175,55,.08); }
+    .muted{ color:var(--muted); font-size:12px; }
+
+    /* Responsive */
+    @media (max-width:1200px){ .chart-lg{ grid-column:1 / -1; } .chart-sm{ grid-column:span 6; } .table-wrap{ grid-column:1 / -1; } .activity{ grid-column:1 / -1; } .kpis{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:900px){ .dash{ grid-template-columns:84px 1fr; } }
+    @media (max-width:700px){ .dash__main{ grid-template-columns:repeat(6,1fr); } .chart-sm{ grid-column:span 6; } .kpis{ grid-template-columns:1fr; } }
+
+    /* Mobile off-canvas */
+    @media (max-width:900px) {
+      .dash { grid-template-columns: 1fr; grid-template-areas:"header" "main"; }
+      .dash__header { grid-column: 1 / -1; }
+      .dash__sidebar { position: fixed; left: 0; top: 0; height:100vh; width:84%; max-width:340px; transform: translateX(-110%); transition: transform 280ms ease, opacity 280ms ease; z-index:2000; box-shadow: 0 18px 40px rgba(2,6,23,.65); border-right:none; padding-top:18px; background: linear-gradient(180deg,#0f1315,#0d1a29); visibility:hidden; opacity:0; }
+      .dash__sidebar.open { transform: translateX(0); visibility: visible; opacity: 1; }
+      .mobile-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 1990; display: none; }
+      .mobile-overlay.visible { display:block; }
+      .dash__sidebar { position: fixed; }
+      .sidebar-foot #collapse { display: none; }
+      .dash__main { padding-top: 12px; }
+      .dash__header { padding-left: 56px; }
+      .mobile-toggle { display: flex !important; }
+    }
+
+    .mobile-toggle { display: none; position: absolute; left: 16px; top: 12px; z-index: 2010; align-items: center; justify-content: center; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); cursor: pointer; color:var(--text); }
+
+    .chart-legend { display:flex; gap:10px; align-items:center; font-size:13px; color:var(--muted); }
+
+    a:focus, button:focus { outline: 3px solid rgba(212,175,55,.14); outline-offset: 3px; }
+
+    .mobile-close { display: none; position: absolute; right: 12px; top: 12px; z-index: 2055; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); color: var(--text); font-size: 18px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.6); }
+    @media (max-width: 900px) { .mobile-close { display: flex; } }
+
+    .chart-wrap { width: 100%; max-width: 100%; box-sizing: border-box; overflow: hidden; }
+    .chart-lg .chart-wrap { height: 320px; min-height: 240px; }
+    .chart-sm .chart-wrap { height: 220px; min-height: 160px; }
+    @media (max-width: 900px) { .chart-lg .chart-wrap { height: 260px; } .chart-sm .chart-wrap { height: 180px; } }
+    .chart-wrap canvas { display: block !important; width: 100% !important; height: 100% !important; max-width: 100% !important; object-fit: contain; }
+    img, svg { max-width:100%; height:auto; display:block; }
+
+  </style>
+</head>
+
+<body class="dash">
+  <!-- SIDEBAR -->
+  <aside class="dash__sidebar fade-in" id="sidebar">
+    <div class="brand">
+      <div class="brand__logo">S</div>
+      <h1 class="brand__name">Stacklya — Brokerage Solutions</h1>
+    </div>
+
+    <nav class="nav">
+      <a class="is-active" href="404page.html"><span class="nav__icon">📈</span><span>Dashboard</span><span></span></a>
+      <a href="404page.html"><span class="nav__icon">🌐</span><span>Markets</span></a>
+      <a href="404page.html"><span class="nav__icon">💼</span><span>Trades</span></a>
+      <a href="404page.html"><span class="nav__icon">📊</span><span>Portfolio</span></a>
+      <a href="404page.html"><span class="nav__icon">📑</span><span>Reports</span></a>
+      <a href="404page.html"><span class="nav__icon">👥</span><span>Clients</span></a>
+      <a href="index.html"><span class="nav__icon">↩️</span><span>Back to Website</span></a>
+    </nav>
+
+    <div class="sep"></div>
+
+    <div class="sidebar-foot">
+      <div class="mini">
+        <div class="nav__icon">⚙️</div>
+        <div><strong>TradeOps</strong><br><small class="muted">Execution & routing</small></div>
+      </div>
+      <button class="btn" id="collapse">Toggle Sidebar</button>
+    </div>
+  </aside>
+
+  <!-- HEADER -->
+  <header class="dash__header">
+    <form action="404page.html" method="GET" class="search">
+      <span>🔍</span>
+      <input type="text" name="q" placeholder="Search trades, clients, tickers..." aria-label="Search" />
+    </form>
+
+    <a href="#"><button class="btn btn--brand">New Trade</button></a>
+  </header>
+
+  <!-- MAIN -->
+  <main class="dash__main">
+    <!-- KPIs -->
+    <section class="kpis">
+      <div class="card kpi fade-in show">
+        <div class="card__head"><span class="card__title">Daily P&amp;L</span><span>⋯</span></div>
+        <div class="value">₹ 1.24L</div><div class="delta">▲ +2.6% vs prev</div>
+      </div>
+
+      <div class="card kpi fade-in show" style="transition-delay:.05s">
+        <div class="card__head"><span class="card__title">Active Traders</span><span>⋯</span></div>
+        <div class="value">1,280</div><div class="delta">▲ +1.1%</div>
+      </div>
+
+      <div class="card kpi fade-in show" style="transition-delay:.1s">
+        <div class="card__head"><span class="card__title">AUM</span><span>⋯</span></div>
+        <div class="value">₹ 45.6Cr</div><div class="delta" style="color:var(--gold)">• Stable</div>
+      </div>
+
+      <div class="card kpi fade-in show" style="transition-delay:.15s">
+        <div class="card__head"><span class="card__title">Avg Exec Time</span><span>⋯</span></div>
+        <div class="value">120 ms</div><div class="delta" style="color:#d9534f">▼ -10ms</div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="card chart-lg fade-in show" style="animation-delay:.02s">
+      <div class="card__head">
+        <span class="card__title">Trades & Volume (Last 12 Months)</span>
+        <span class="chart-legend"><span style="color:var(--gold)">● Trades</span><span style="color:var(--muted)">● Volume</span></span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="chartLine" aria-label="Trades vs Volume chart"></canvas>
+      </div>
+    </section>
+
+    <section class="card chart-sm fade-in show" style="animation-delay:.04s">
+      <div class="card__head"><span class="card__title">Asset Mix</span><span>🎛️</span></div>
+      <div class="chart-wrap">
+        <canvas id="chartDough" aria-label="Asset mix doughnut chart" role="img"></canvas>
+      </div>
+    </section>
+
+    <section class="card chart-sm fade-in show" style="animation-delay:.06s">
+      <div class="card__head"><span class="card__title">Trades This Week</span><span>📈</span></div>
+      <div class="chart-wrap">
+        <canvas id="chartBar" aria-label="Weekly trades bar chart" role="img"></canvas>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section class="card table-wrap fade-in show" style="animation-delay:.08s">
+      <div class="card__head">
+        <span class="card__title">Top Clients</span>
+        <button class="btn" id="export">Export CSV</button>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Client</th><th>Service</th><th>Portfolio Value</th><th>Status</th></tr></thead>
+          <tbody id="tbodyClients">
+            <tr><td>Alpha Capital</td><td>Discretionary</td><td>₹ 12,50,00,000</td><td>Active</td></tr>
+            <tr><td>BlueWave Holdings</td><td>Algo Execution</td><td>₹ 7,20,00,000</td><td>Active</td></tr>
+            <tr><td>FreshBites Co</td><td>Corporate Treasury</td><td>₹ 2,10,00,000</td><td>Pending</td></tr>
+            <tr><td>DriveLine Solutions</td><td>Employee Benefits</td><td>₹ 1,40,00,000</td><td>Active</td></tr>
+            <tr><td>GreenFleet Logistics</td><td>Cash Management</td><td>₹ 85,00,000</td><td>Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Activity -->
+    <section class="card activity fade-in show" style="animation-delay:.10s">
+      <div class="card__head"><span class="card__title">Activity</span><span>⚡</span></div>
+      <div class="timeline">
+        <div class="tick"><span class="dot" style="background:var(--gold); box-shadow:0 0 0 6px rgba(212,175,55,.08)"></span><p><strong>Alpha Capital</strong> placed block trade (EQ) — 1,00,000 shares</p><span class="muted">5m</span></div>
+        <div class="tick"><span class="dot" style="background:#7ea6b8; box-shadow:0 0 0 6px rgba(126,166,184,.08)"></span><p><strong>BlueWave Holdings</strong> algo order executed</p><span class="muted">1h</span></div>
+        <div class="tick"><span class="dot" style="background:#ffd9b3; box-shadow:0 0 0 6px rgba(255,217,179,.06)"></span><p><strong>FreshBites Co</strong> KYC documents approved</p><span class="muted">3h</span></div>
+        <div class="tick"><span class="dot" style="background:var(--gold); box-shadow:0 0 0 6px rgba(212,175,55,.06)"></span><p><strong>DriveLine Solutions</strong> rebalance completed</p><span class="muted">6h</span></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Sidebar collapse
+    (function(){
+      const dash = document.querySelector('.dash');
+      const coll = document.getElementById('collapse');
+      if (coll) coll.addEventListener('click', ()=> dash.classList.toggle('is-collapsed'));
+
+      // theme toggle element support (optional)
+      const themeBtn = document.getElementById('theme');
+      if (themeBtn) themeBtn.addEventListener('click', ()=> {
+        const isLight = getComputedStyle(dash).getPropertyValue('--bg').trim() !== '#0d1a29';
+        if (isLight) {
+          // back to requested dark brokerage theme
+          dash.style.setProperty('--bg', '#0d1a29');
+          dash.style.setProperty('--panel', '#0f212c');
+          dash.style.setProperty('--text', '#ffffff');
+          dash.style.setProperty('--muted', '#bfc7cc');
+          dash.style.setProperty('--gold', '#d4af37');
+          dash.style.setProperty('--black', '#000000');
+          themeBtn.textContent = '🌙';
+          dash.classList.remove('is-light');
+        } else {
+          // simple light variant (if needed)
+          dash.style.setProperty('--bg', '#f6f7fb');
+          dash.style.setProperty('--panel', '#ffffff');
+          dash.style.setProperty('--text', '#0b0c0f');
+          dash.style.setProperty('--muted', '#6b6e73');
+          dash.style.setProperty('--gold', '#b07b3f');
+          dash.style.setProperty('--black', '#000000');
+          themeBtn.textContent = '☀️';
+          dash.classList.add('is-light');
+        }
+      });
+    })();
+
+    // Charts: updated to brokerage metrics
+    const chartLine = new Chart(document.getElementById('chartLine'), {
+      type: 'line',
+      data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        datasets: [
+          { label:'Trades (k)', data:[12,14,15,18,20,22,21,24,25,27,28,30], tension:.32, fill:true, borderColor:'rgba(212,175,55,1)', backgroundColor:'rgba(212,175,55,0.12)', pointRadius:2 },
+          { label:'Volume (Cr)', data:[8,9,10,12,13,15,14,15,16,17,18,19], tension:.32, fill:true, borderColor:'rgba(191,199,204,1)', backgroundColor:'rgba(191,199,204,0.06)', pointRadius:2 }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: getComputedStyle(document.body).getPropertyValue('--muted') } } }, scales: { x: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--muted') } }, y: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--muted') } } } }
+    });
+
+    const chartDough = new Chart(document.getElementById('chartDough'), {
+      type:'doughnut',
+      data:{ labels:['Equities','F&O','Debt','Commodities'], datasets:[{ data:[52,20,18,10], backgroundColor:['#d4af37','#7ea6b8','#9fb6a8','#c9b79a'] }] },
+      options:{ responsive:true, maintainAspectRatio:false, cutout:'62%' }
+    });
+
+    const chartBar = new Chart(document.getElementById('chartBar'), {
+      type:'bar',
+      data:{ labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], datasets:[{ label:'Trades', data:[1200,1400,1300,1500,1700,900,600], backgroundColor:'#d4af37' }] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales: { x: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--muted') } }, y: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--muted') } } } }
+    });
+
+    const charts = [chartLine, chartDough, chartBar];
+    window.addEventListener('resize', () => charts.forEach(c => c && c.resize && c.resize()));
+
+    // Export table to CSV
+    const exportBtn = document.getElementById('export');
+    if (exportBtn) exportBtn.addEventListener('click', ()=> {
+      const rows = [...document.querySelectorAll('#tbodyClients tr')].map(tr => [...tr.children].map(td => `"${td.textContent.replace(/"/g,'""')}"`).join(','));
+      const csv  = ['"Client","Service","Portfolio Value","Status"', ...rows].join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'stacklya-clients.csv'; a.click(); URL.revokeObjectURL(a.href);
+    });
+
+    // entrance toggles
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-in').forEach((el, i) => {
+        setTimeout(()=> el.classList.add('show'), 80 + i * 40);
+      });
+    });
+  </script>
+
+  <!-- mobile toggle script -->
+  <script>
+    (function(){
+      const header = document.querySelector('.dash__header');
+      const sidebar = document.querySelector('.dash__sidebar');
+      if (!header || !sidebar) return;
+
+      const btn = document.createElement('button');
+      btn.id = 'mobileToggle';
+      btn.className = 'mobile-toggle';
+      btn.setAttribute('aria-label','Open menu');
+      btn.innerHTML = '☰';
+      header.appendChild(btn);
+
+      const overlay = document.createElement('div');
+      overlay.className = 'mobile-overlay';
+      document.body.appendChild(overlay);
+
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'mobile-close';
+      closeBtn.setAttribute('aria-label', 'Close menu');
+      closeBtn.innerHTML = '✕';
+      sidebar.appendChild(closeBtn);
+
+      function openSidebar(){
+        sidebar.classList.add('open');
+        overlay.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+        btn.innerHTML = '✕';
+        btn.setAttribute('aria-label', 'Close menu');
+        setTimeout(() => {
+          const f = sidebar.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+          if (f) f.focus();
+        }, 120);
+      }
+      function closeSidebar(){
+        sidebar.classList.remove('open');
+        overlay.classList.remove('visible');
+        document.body.style.overflow = '';
+        btn.innerHTML = '☰';
+        btn.setAttribute('aria-label', 'Open menu');
+        setTimeout(()=> btn.focus(), 80);
+      }
+
+      btn.addEventListener('click', (e)=> { e.preventDefault(); sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+      overlay.addEventListener('click', closeSidebar);
+      closeBtn.addEventListener('click', closeSidebar);
+      sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setTimeout(closeSidebar, 50)));
+      document.addEventListener('keydown', (e)=> { if (e.key === 'Escape' && sidebar.classList.contains('open')) closeSidebar(); });
+
+    })();
+  </script>
+</body>
+</html>

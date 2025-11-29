@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brokerage Solutions — Home 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- Left: Logo -->
+      <div class="header-logo">
+        <a href="/" aria-label="Home">
+          <img src="assets/images/logo3.webp" alt="Stackly logo" class="brand-logo">
+        </a>
+      </div>
+
+      <!-- Center: Navigation -->
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+
+          <!-- Home (dropdown) -->
+          <li class="has-dropdown home-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="homeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="homeDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- Pages (NEW dropdown) -->
+          <li class="has-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="pagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="pagesDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+              <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+              <li role="none"><a role="menuitem" href="faq.html">FAQs</a></li>
+              <li role="none"><a role="menuitem" href="privacy.html">Privacy Policy</a></li>
+              <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Login (desktop) -->
+      <div class="header-actions"> 
+  <a href="login.html">
+    <button class="btn login-btn" id="loginBtn">Login</button>
+  </a>
+</div>
+
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- MOBILE PANEL -->
+    <div class="mobile-panel" id="mobileMenu" hidden>
+      <div class="mobile-panel-header">
+        <a href="index.html" aria-label="Home">
+
+        </a>
+        <button class="close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+
+          <!-- MOBILE Home Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mHomeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mHomeDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- MOBILE Pages Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mPagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mPagesDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+
+              <li class="mobile-login">
+  <a href="login.html">
+    <button class="btn login-btn" id="mobileLogin">Login</button>
+  </a>
+</li>
+
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <!-- END HEADER -->
+
+  <!-- END HEADER -->
+
+
+
+
+  <section class="stackly-pricing-section" aria-labelledby="pricing-heading">
+  <div class="stackly-pricing-inner">
+
+    <!-- Intro Content -->
+    <header class="stackly-pricing-intro">
+      <h5 class="stackly-pricing-kicker">PRICING</h5>
+      <h2 id="pricing-heading" class="stackly-pricing-title">Plans built for every property need</h2>
+      <p class="stackly-pricing-sub">
+        Choose a plan that fits your brokerage or property management needs. All plans include secure document
+        storage, verified listings, and basic support. Upgrade to unlock premium marketing, priority verification,
+        and API access for teams.
+      </p>
+
+      <div class="stackly-pricing-toggle">
+        <span class="stackly-toggle-label">Billing</span>
+        <div class="stackly-toggle-switch" role="switch" aria-checked="false" tabindex="0" id="stackly-billing-toggle">
+          <span class="stackly-toggle-thumb"></span>
+        </div>
+        <span class="stackly-toggle-text">Monthly / Yearly</span>
+      </div>
+    </header>
+
+    <!-- Pricing Grid -->
+    <div class="stackly-pricing-grid" role="list" aria-label="Pricing plans">
+      <!-- Basic -->
+      <article class="stackly-plan-card" data-plan="basic" role="listitem">
+        <div class="stackly-plan-inner">
+          <div class="stackly-plan-head">
+            <h3 class="stackly-plan-name">Basic</h3>
+            <p class="stackly-plan-subname">For solo agents & small listings</p>
+          </div>
+
+          <div class="stackly-plan-price">
+            <span class="stackly-currency">₹</span>
+            <span class="stackly-price-amount" data-monthly="499" data-yearly="4990">499</span>
+            <span class="stackly-price-period">/mo</span>
+          </div>
+
+          <ul class="stackly-plan-features">
+            <li>Up to 25 listings</li>
+            <li>Verified listing badge</li>
+            <li>Basic analytics</li>
+            <li>Email support</li>
+          </ul>
+
+          <a class="stackly-plan-cta" href="404page.html">Get Started</a>
+        </div>
+      </article>
+
+      <!-- Pro (Recommended) -->
+      <article class="stackly-plan-card stackly-plan-reco" data-plan="pro" role="listitem" aria-label="Recommended plan">
+        <div class="stackly-plan-badge">Recommended</div>
+
+        <div class="stackly-plan-inner">
+          <div class="stackly-plan-head">
+            <h3 class="stackly-plan-name">Pro</h3>
+            <p class="stackly-plan-subname">Best for growing teams</p>
+          </div>
+
+          <div class="stackly-plan-price">
+            <span class="stackly-currency">₹</span>
+            <span class="stackly-price-amount" data-monthly="1299" data-yearly="12990">1299</span>
+            <span class="stackly-price-period">/mo</span>
+          </div>
+
+          <ul class="stackly-plan-features">
+            <li>Unlimited listings</li>
+            <li>Priority verification</li>
+            <li>Advanced analytics & dashboards</li>
+            <li>Phone & chat support</li>
+            <li>Integration APIs</li>
+          </ul>
+
+          <a class="stackly-plan-cta stackly-cta-primary" href="404page.html">Start Free Trial</a>
+        </div>
+      </article>
+
+      <!-- Enterprise -->
+      <article class="stackly-plan-card" data-plan="enterprise" role="listitem">
+        <div class="stackly-plan-inner">
+          <div class="stackly-plan-head">
+            <h3 class="stackly-plan-name">Enterprise</h3>
+            <p class="stackly-plan-subname">Custom solutions for large teams</p>
+          </div>
+
+          <div class="stackly-plan-price">
+            <span class="stackly-currency">₹</span>
+            <span class="stackly-price-amount" data-monthly="custom" data-yearly="custom">Contact</span>
+            <span class="stackly-price-period"></span>
+          </div>
+
+          <ul class="stackly-plan-features">
+            <li>Dedicated account manager</li>
+            <li>Custom SLAs & onboarding</li>
+            <li>White-label & custom integrations</li>
+            <li>Advanced security & compliance</li>
+          </ul>
+
+          <a class="stackly-plan-cta" href="404page.html">Contact Sales</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="stackly-cta-section">
+  <div class="stackly-cta-container">
+
+    <h2 class="stackly-cta-title">Ready to Get Started With Stackly?</h2>
+
+    <p class="stackly-cta-sub">
+      Join thousands of users who trust Stackly for secure property transactions, 
+      verified listings, and complete brokerage support.
+    </p>
+
+    <a href="404page.html" class="stackly-cta-button">Get Started Now</a>
+
+    <p class="stackly-cta-note">No credit card required • 24/7 support</p>
+
+  </div>
+</section>
+
+
+
+
+  
+
+  <!-- START FOOTER (replace existing footer block) -->
+<footer class="site-footer broker-footer" role="contentinfo">
+  <div class="container footer-wrap">
+    <div class="footer-col footer-brand">
+      <a href="/" class="footer-logo-link" aria-label="Stackly home">
+        <img src="assets/images/logo3.webp" alt="Stackly logo" class="footer-logo">
+      </a>
+      <p class="footer-desc">
+        Stackly — Brokerage Solutions. We simplify property transactions with technology-driven brokerage services,
+        verified listings and end-to-end support for buyers, sellers and landlords.
+      </p>
+    </div>
+
+    <div class="footer-col footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-services">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="brokage.html">Brokerage Solutions</a></li>
+        <li><a href="properties.html">Property Management</a></li>
+        <li><a href="404page.html">Tenant Verification</a></li>
+        <li><a href="404page.html">Documentation Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-news">
+      <h4>Stay Connected</h4>
+      <p class="muted">Subscribe to our newsletter for market updates, new listings and offers — no spam.</p>
+
+      <form id="footerNewsletterForm" class="footer-news-form" novalidate>
+        <label for="footerNewsletterEmail" class="sr-only">Email address</label>
+        <div class="input-row">
+          <input id="footerNewsletterEmail" name="email" type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn subscribe-btn" aria-label="Subscribe">→</button>
+        </div>
+        <div id="footerNewsletterMsg" class="footer-news-msg" aria-live="polite"></div>
+      </form>
+
+      <div class="footer-socials">
+        <a href="404page.html" aria-label="Facebook" class="social-btn">f</a>
+        <a href="404page.html" aria-label="Twitter"  class="social-btn">t</a>
+        <a href="404page.html" aria-label="Instagram" class="social-btn">ig</a>
+        <a href="404page.html" aria-label="LinkedIn" class="social-btn">in</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div class="copyright">© <span id="footerYear"></span> Stackly Brokerage Solutions. All rights reserved.</div>
+      <div class="madeby">Built with care • Stackly</div>
+    </div>
+  </div>
+</footer>
+<!-- END FOOTER -->
+<!-- END FOOTER -->
+ <script>
+
+    
+
+// STACKLY pricing toggle & reveal
+
+// Billing toggle: switches between monthly and yearly
+(function () {
+  const toggle = document.getElementById('stackly-billing-toggle');
+  const priceElements = document.querySelectorAll('.stackly-price-amount');
+
+  function setBilling(isYearly) {
+    // update aria
+    toggle.setAttribute('aria-checked', String(isYearly));
+    // update each price element
+    priceElements.forEach(el => {
+      const monthly = el.getAttribute('data-monthly');
+      const yearly = el.getAttribute('data-yearly');
+      if (!monthly || !yearly) return;
+      if (isYearly) {
+        // show yearly price (divide by 12 as an example discount display)
+        if (yearly === 'custom') {
+          el.textContent = 'Contact';
+        } else {
+          el.textContent = yearly;
+        }
+        // update period
+        el.nextElementSibling && (el.nextElementSibling.textContent = '/yr');
+      } else {
+        if (monthly === 'custom') {
+          el.textContent = 'Contact';
+          el.nextElementSibling && (el.nextElementSibling.textContent = '');
+        } else {
+          el.textContent = monthly;
+          el.nextElementSibling && (el.nextElementSibling.textContent = '/mo');
+        }
+      }
+    });
+  }
+
+  // initial state: monthly
+  let yearly = false;
+  setBilling(yearly);
+
+  // click / keyboard toggle
+  toggle.addEventListener('click', () => {
+    yearly = !yearly;
+    setBilling(yearly);
+  });
+  toggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      yearly = !yearly;
+      setBilling(yearly);
+    }
+  });
+})();
+
+// Reveal cards on scroll with stagger
+(function () {
+  const cards = Array.from(document.querySelectorAll('.stackly-plan-card'));
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(c => c.classList.add('is-visible'));
+    return;
+  }
+  const obs = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = cards.indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add('is-visible'), idx * 120);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+  cards.forEach(c => obs.observe(c));
+})();
+
+
+ </script>
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+</body>
+</html>
+
+  

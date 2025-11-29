@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brokerage Solutions — Home 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- Left: Logo -->
+      <div class="header-logo">
+        <a href="/" aria-label="Home">
+          <img src="assets/images/logo3.webp" alt="Stackly logo" class="brand-logo">
+        </a>
+      </div>
+
+      <!-- Center: Navigation -->
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+
+          <!-- Home (dropdown) -->
+          <li class="has-dropdown home-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="homeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="homeDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- Pages (NEW dropdown) -->
+          <li class="has-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="pagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="pagesDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+              <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+              <li role="none"><a role="menuitem" href="faq.html">FAQs</a></li>
+              <li role="none"><a role="menuitem" href="privacy.html">Privacy Policy</a></li>
+              <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Login (desktop) -->
+     <div class="header-actions"> 
+  <a href="login.html">
+    <button class="btn login-btn" id="loginBtn">Login</button>
+  </a>
+</div>
+
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- MOBILE PANEL -->
+    <div class="mobile-panel" id="mobileMenu" hidden>
+      <div class="mobile-panel-header">
+        <a href="index.html" aria-label="Home">
+
+        </a>
+        <button class="close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+
+          <!-- MOBILE Home Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mHomeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mHomeDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- MOBILE Pages Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mPagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mPagesDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+
+          <!-- MOBILE Login -->
+              <li class="mobile-login">
+  <a href="login.html">
+    <button class="btn login-btn" id="mobileLogin">Login</button>
+  </a>
+</li>
+
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <!-- END HEADER -->
+
+  
+
+
+
+
+  <!-- HERO: Search-first hero for Stackly (replace existing <main>...) -->
+<main>
+  <section class="hero hero-search" aria-labelledby="heroTitle">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <h1 id="heroTitle">Find the right property with Stackly</h1>
+        <p class="hero-sub">
+          Smart brokerage solutions, verified listings and end-to-end support for buyers, sellers and landlords.
+        </p>
+
+        <form id="searchForm" class="hero-search-form" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="txType" class="sr-only">Transaction type</label>
+              <select id="txType" name="txType" aria-label="Transaction type">
+                <option value="buy">Buy</option>
+                <option value="rent">Rent</option>
+              </select>
+            </div>
+
+            <div class="field wide">
+              <label for="location" class="sr-only">Location</label>
+              <input id="location" name="location" type="search" inputmode="search" placeholder="Enter city, neighbourhood or project" aria-label="Location" required>
+            </div>
+
+            <div class="field">
+              <label for="propType" class="sr-only">Property type</label>
+              <select id="propType" name="propType" aria-label="Property type">
+                <option value="">Any type</option>
+                <option value="apartment">Apartment</option>
+                <option value="flat">Flat</option>
+                <option value="house">House</option>
+                <option value="plot">Plot</option>
+              </select>
+            </div>
+
+            <div class="field small">
+              <label for="budget" class="sr-only">Max budget</label>
+              <select id="budget" name="budget" aria-label="Maximum budget">
+                <option value="">Max budget</option>
+                <option value="5L">₹5L</option>
+                <option value="10L">₹10L</option>
+                <option value="25L">₹25L</option>
+                <option value="50L">₹50L+</option>
+              </select>
+            </div>
+
+            <div class="field action">
+              <button type="submit" class="btn search-btn" aria-label="Search properties">Search</button>
+            </div>
+          </div>
+
+          <div id="searchMsg" class="search-msg" aria-live="polite"></div>
+        </form>
+
+        <p class="hero-note">Or <a href="404page.html" class="muted-link">request a callback</a> • Trusted listings • Transparent fees</p>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <!-- Replace image with your illustration if you have one -->
+        <div class="hero-illustration" role="img" aria-label="City skyline and properties illustration"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+
+
+  <!-- START FOOTER (replace existing footer block) -->
+<footer class="site-footer broker-footer" role="contentinfo">
+  <div class="container footer-wrap">
+    <div class="footer-col footer-brand">
+      <a href="/" class="footer-logo-link" aria-label="Stackly home">
+        <img src="assets/images/logo3.webp" alt="Stackly logo" class="footer-logo">
+      </a>
+      <p class="footer-desc">
+        Stackly — Brokerage Solutions. We simplify property transactions with technology-driven brokerage services,
+        verified listings and end-to-end support for buyers, sellers and landlords.
+      </p>
+    </div>
+
+    <div class="footer-col footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-services">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="brokage.html">Brokerage Solutions</a></li>
+        <li><a href="properties.html">Property Management</a></li>
+        <li><a href="404page.html">Tenant Verification</a></li>
+        <li><a href="404page.html">Documentation Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-news">
+      <h4>Stay Connected</h4>
+      <p class="muted">Subscribe to our newsletter for market updates, new listings and offers — no spam.</p>
+
+      <form id="footerNewsletterForm" class="footer-news-form" novalidate>
+        <label for="footerNewsletterEmail" class="sr-only">Email address</label>
+        <div class="input-row">
+          <input id="footerNewsletterEmail" name="email" type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn subscribe-btn" aria-label="Subscribe">→</button>
+        </div>
+        <div id="footerNewsletterMsg" class="footer-news-msg" aria-live="polite"></div>
+      </form>
+
+      <div class="footer-socials">
+        <a href="404page.html" aria-label="Facebook" class="social-btn">f</a>
+        <a href="404page.html" aria-label="Twitter"  class="social-btn">t</a>
+        <a href="404page.html" aria-label="Instagram" class="social-btn">ig</a>
+        <a href="404page.html" aria-label="LinkedIn" class="social-btn">in</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div class="copyright">© <span id="footerYear"></span> Stackly Brokerage Solutions. All rights reserved.</div>
+      <div class="madeby">Built with care • Stackly</div>
+    </div>
+  </div>
+</footer>
+<!-- END FOOTER -->
+<!-- END FOOTER -->
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+</body>
+</html>

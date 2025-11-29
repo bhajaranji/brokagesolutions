@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brokerage Solutions — Home 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- Left: Logo -->
+      <div class="header-logo">
+        <a href="/" aria-label="Home">
+          <img src="assets/images/logo3.webp" alt="Stackly logo" class="brand-logo">
+        </a>
+      </div>
+
+      <!-- Center: Navigation -->
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+
+          <!-- Home (dropdown) -->
+          <li class="has-dropdown home-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="homeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="homeDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- Pages (NEW dropdown) -->
+          <li class="has-dropdown">
+            <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="pagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown" id="pagesDropdown" role="menu" aria-hidden="true">
+              <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+              <li role="none"><a role="menuitem" href="services.html">Services</a></li>
+              <li role="none"><a role="menuitem" href="faq.html">FAQs</a></li>
+              <li role="none"><a role="menuitem" href="privacy.html">Privacy Policy</a></li>
+              <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Login (desktop) -->
+     <div class="header-actions"> 
+  <a href="login.html">
+    <button class="btn login-btn" id="loginBtn">Login</button>
+  </a>
+</div>
+
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- MOBILE PANEL -->
+    <div class="mobile-panel" id="mobileMenu" hidden>
+      <div class="mobile-panel-header">
+        <a href="index.html" aria-label="Home">
+
+        </a>
+        <button class="close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+
+          <!-- MOBILE Home Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mHomeDropdown">
+              <span>Home</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mHomeDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="home1.html">Home 1</a></li>
+            </ul>
+          </li>
+
+          <!-- MOBILE Pages Dropdown -->
+          <li>
+            <button type="button" class="mobile-drop-toggle" aria-expanded="false" aria-controls="mPagesDropdown">
+              <span>Pages</span><span class="arrow" aria-hidden="true">▾</span>
+            </button>
+            <ul id="mPagesDropdown" class="mobile-dropdown" aria-hidden="true">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </li>
+
+          <li><a href="brokage.html">Brokerage Solutions</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+
+          <!-- MOBILE Login -->
+               <li class="mobile-login">
+  <a href="login.html">
+    <button class="btn login-btn" id="mobileLogin">Login</button>
+  </a>
+</li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <!-- END HEADER -->
+
+  <!-- END HEADER -->
+
+
+  <section class="prop-hero">
+  <div class="prop-hero-inner">
+    <h1 class="prop-hero-title">Find Your Perfect Home</h1>
+    <p class="prop-hero-subtitle">
+      Explore verified properties with transparent pricing and trusted details.
+    </p>
+  </div>
+</section>
+
+
+
+
+
+<!-- Put this filter block above your .stackly-prop-grid (inside .stackly-prop-inner) -->
+<section class="stackly-prop-filter-wrap">
+  <div class="stackly-prop-filter">
+    <div class="filter-row">
+      <input id="filter-search" type="search" placeholder="Search by city / locality (e.g. Whitefield)" />
+
+      <div class="filter-group">
+        <label>Price</label>
+        <div class="price-range">
+          <input id="price-min" type="number" placeholder="Min" min="0" />
+          <span>—</span>
+          <input id="price-max" type="number" placeholder="Max" min="0" />
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>BHK</label>
+        <select id="filter-bhk" multiple>
+          <option value="1">1 BHK</option>
+          <option value="2">2 BHK</option>
+          <option value="3">3 BHK</option>
+          <option value="4">4+ BHK</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Furnishing</label>
+        <select id="filter-furn">
+          <option value="any">Any</option>
+          <option value="Furnished">Furnished</option>
+          <option value="Semi-Furnished">Semi-Furnished</option>
+          <option value="Unfurnished">Unfurnished</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Listing</label>
+        <select id="filter-listing">
+          <option value="any">Any</option>
+          <option value="sale">Sale</option>
+          <option value="rent">Rent</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Sort</label>
+        <select id="filter-sort">
+          <option value="default">Default</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button id="apply-filters">Apply</button>
+        <button id="reset-filters" class="secondary">Reset</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Your existing properties section (unchanged structure) -->
+<section class="stackly-prop-grid-section">
+  <div class="stackly-prop-inner">
+
+    <h2 class="stackly-prop-title">Available Properties</h2>
+    <p class="stackly-prop-subtitle">
+      Explore verified properties with complete details, transparent pricing, and trusted listings.
+    </p>
+
+    <!-- GRID -->
+    <div id="prop-grid" class="stackly-prop-grid">
+      <!-- Example property cards with data-* attributes for filtering; add same attributes to all cards -->
+      <article class="stackly-prop-card" data-price="4500000" data-city="Bangalore" data-locality="Whitefield" data-bhk="2" data-furnishing="Unfurnished" data-listing="sale" data-added="2025-11-20">
+        <div class="stackly-prop-img">
+          <img src="assets/images/property1.webp" alt="Property Image 1">
+        </div>
+        <div class="stackly-prop-info">
+          <h3 class="stackly-prop-price">₹ 45,00,000</h3>
+          <p class="stackly-prop-location">Bangalore • Whitefield</p>
+          <ul class="stackly-prop-specs">
+            <li>2 BHK</li>
+            <li>1150 sqft</li>
+            <li>Verified</li>
+          </ul>
+          <a href="404page.html" class="stackly-prop-btn">View Details</a>
+        </div>
+      </article>
+
+      <article class="stackly-prop-card" data-price="7800000" data-city="Mumbai" data-locality="Andheri East" data-bhk="3" data-furnishing="Furnished" data-listing="sale" data-added="2025-11-18">
+        <div class="stackly-prop-img">
+          <img src="assets/images/property2.webp" alt="Property Image 2">
+        </div>
+        <div class="stackly-prop-info">
+          <h3 class="stackly-prop-price">₹ 78,00,000</h3>
+          <p class="stackly-prop-location">Mumbai • Andheri East</p>
+          <ul class="stackly-prop-specs">
+            <li>3 BHK</li>
+            <li>1450 sqft</li>
+            <li>Furnished</li>
+          </ul>
+          <a href="404page.html" class="stackly-prop-btn">View Details</a>
+        </div>
+      </article>
+
+      <article class="stackly-prop-card" data-price="25000" data-city="Hyderabad" data-locality="HiTech City" data-bhk="2" data-furnishing="Semi-Furnished" data-listing="rent" data-added="2025-11-25">
+        <div class="stackly-prop-img">
+          <img src="assets/images/property3.webp" alt="Property Image 3">
+        </div>
+        <div class="stackly-prop-info">
+          <h3 class="stackly-prop-price">₹ 25,000 / month</h3>
+          <p class="stackly-prop-location">Hyderabad • HiTech City</p>
+          <ul class="stackly-prop-specs">
+            <li>2 BHK</li>
+            <li>980 sqft</li>
+            <li>Semi-Furnished</li>
+          </ul>
+          <a href="404page.html" class="stackly-prop-btn">View Details</a>
+        </div>
+      </article>
+
+
+
+      
+      <article class="stackly-prop-card" data-price="25000" data-city="Hyderabad" data-locality="HiTech City" data-bhk="2" data-furnishing="Semi-Furnished" data-listing="rent" data-added="2025-11-25">
+        <div class="stackly-prop-img">
+          <img src="assets/images/property6.webp" alt="Property Image 3">
+        </div>
+        <div class="stackly-prop-info">
+          <h3 class="stackly-prop-price">₹ 90,000 / month</h3>
+          <p class="stackly-prop-location">Delhi • HiTech City</p>
+          <ul class="stackly-prop-specs">
+            <li>2 BHK</li>
+            <li>980 sqft</li>
+            <li>Semi-Furnished</li>
+          </ul>
+          <a href="404page.html" class="stackly-prop-btn">View Details</a>
+        </div>
+      </article>
+
+
+
+      
+      <article class="stackly-prop-card" data-price="25000" data-city="Hyderabad" data-locality="HiTech City" data-bhk="2" data-furnishing="Semi-Furnished" data-listing="rent" data-added="2025-11-25">
+        <div class="stackly-prop-img">
+          <img src="assets/images/property4.webp" alt="Property Image 3">
+        </div>
+        <div class="stackly-prop-info">
+          <h3 class="stackly-prop-price">₹ 100,000 / month</h3>
+          <p class="stackly-prop-location">chennai • HiTech City</p>
+          <ul class="stackly-prop-specs">
+            <li>2 BHK</li>
+            <li>980 sqft</li>
+            <li>Semi-Furnished</li>
+          </ul>
+          <a href="404page.html" class="stackly-prop-btn">View Details</a>
+        </div>
+      </article>
+
+
+
+
+      
+      <article class="stackly-prop-card" data-price="25000" data-city="Hyderabad" data-locality="HiTech City" data-bhk="2" data-furnishing="Semi-Furnished" data-listing="rent" data-added="2025-11-25">
+        <div class="stackly-prop-img">
+          <img src="assets/images/property5.webp" alt="Property Image 3">
+        </div>
+        <div class="stackly-prop-info">
+          <h3 class="stackly-prop-price">₹ 25,000 / month</h3>
+          <p class="stackly-prop-location">Pune city</p>
+          <ul class="stackly-prop-specs">
+            <li>2 BHK</li>
+            <li>980 sqft</li>
+            <li>Semi-Furnished</li>
+          </ul>
+          <a href="404page.html" class="stackly-prop-btn">View Details</a>
+        </div>
+      </article>
+
+
+
+      <!-- add more cards with the same data-* attributes -->
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- HERO / HEADING -->
+  <header class="stackly-blog-hero">
+    <div class="stackly-blog-hero-inner">
+      <h1>Latest Real Estate Updates</h1>
+      <p>Market trends, buying guides, and expert insights.</p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="stackly-blog-container">
+
+    <!-- BLOG GRID (6 POSTS) -->
+    <section class="stackly-blog-grid">
+
+      <!-- POST 1 -->
+      <article class="stackly-blog-card">
+        <img class="stackly-blog-thumb" src="assets/images/blog1.webp" alt="Post 1 image">
+        <div class="stackly-blog-body">
+          <div class="stackly-blog-meta">Nov 10, 2025 • Admin</div>
+          <h3 class="stackly-blog-title">Understanding Current Market Trends in 2025</h3>
+          <p class="stackly-blog-excerpt">A concise guide to the major trends shaping property prices this year.</p>
+          <div class="stackly-blog-tags">
+            <span class="stackly-blog-tag">Market</span>
+            <span class="stackly-blog-tag">Investment</span>
+          </div>
+          <div class="stackly-blog-footer">
+            <a href="404page.html" class="stackly-blog-read-btn">Read More</a>
+            <span class="stackly-blog-meta">5 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST 2 -->
+      <article class="stackly-blog-card">
+        <img class="stackly-blog-thumb" src="assets/images/blog2.webp" alt="Post 2 image">
+        <div class="stackly-blog-body">
+          <div class="stackly-blog-meta">Oct 04, 2025 • Priya</div>
+          <h3 class="stackly-blog-title">First-time Home Buyer Checklist</h3>
+          <p class="stackly-blog-excerpt">Everything you need to prepare before buying your first home.</p>
+          <div class="stackly-blog-tags">
+            <span class="stackly-blog-tag">Guide</span>
+            <span class="stackly-blog-tag">Buyers</span>
+          </div>
+          <div class="stackly-blog-footer">
+            <a href="404page.html" class="stackly-blog-read-btn">Read More</a>
+            <span class="stackly-blog-meta">6 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST 3 -->
+      <article class="stackly-blog-card">
+        <img class="stackly-blog-thumb" src="assets/images/blog3.webp" alt="Post 3 image">
+        <div class="stackly-blog-body">
+          <div class="stackly-blog-meta">Sep 21, 2025 • Rohit</div>
+          <h3 class="stackly-blog-title">How to Use an EMI Calculator Effectively</h3>
+          <p class="stackly-blog-excerpt">Learn how EMI calculators work and how to compare loan offers.</p>
+          <div class="stackly-blog-tags">
+            <span class="stackly-blog-tag">Finance</span>
+            <span class="stackly-blog-tag">Loans</span>
+          </div>
+          <div class="stackly-blog-footer">
+            <a href="404page.html" class="stackly-blog-read-btn">Read More</a>
+            <span class="stackly-blog-meta">4 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST 4 -->
+      <article class="stackly-blog-card">
+        <img class="stackly-blog-thumb" src="assets/images/blog4.webp" alt="Post 4 image">
+        <div class="stackly-blog-body">
+          <div class="stackly-blog-meta">Aug 15, 2025 • Anjali</div>
+          <h3 class="stackly-blog-title">HiTech City: A Neighbourhood Spotlight</h3>
+          <p class="stackly-blog-excerpt">Explore what makes HiTech City a preferred choice for renters and IT professionals.</p>
+          <div class="stackly-blog-tags">
+            <span class="stackly-blog-tag">Local</span>
+            <span class="stackly-blog-tag">Rentals</span>
+          </div>
+          <div class="stackly-blog-footer">
+            <a href="404page.html" class="stackly-blog-read-btn">Read More</a>
+            <span class="stackly-blog-meta">7 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST 5 -->
+      <article class="stackly-blog-card">
+        <img class="stackly-blog-thumb" src="assets/images/blog5.webp" alt="Post 5 image">
+        <div class="stackly-blog-body">
+          <div class="stackly-blog-meta">Jul 11, 2025 • Akash</div>
+          <h3 class="stackly-blog-title">5 Quick Home Staging Tips to Boost Sale Value</h3>
+          <p class="stackly-blog-excerpt">Simple, affordable staging ideas that improve photos and open-house appeal.</p>
+          <div class="stackly-blog-tags">
+            <span class="stackly-blog-tag">Selling</span>
+            <span class="stackly-blog-tag">Staging</span>
+          </div>
+          <div class="stackly-blog-footer">
+            <a href="404page.html" class="stackly-blog-read-btn">Read More</a>
+
+            <span class="stackly-blog-meta">3 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST 6 -->
+      <article class="stackly-blog-card">
+        <img class="stackly-blog-thumb" src="assets/images/blog6.webp" alt="Post 6 image">
+        <div class="stackly-blog-body">
+          <div class="stackly-blog-meta">Jun 03, 2025 • Meera</div>
+          <h3 class="stackly-blog-title">Where to Invest in 2025: Cities to Watch</h3>
+          <p class="stackly-blog-excerpt">Top emerging micro-markets that show promise for long-term appreciation.</p>
+          <div class="stackly-blog-tags">
+            <span class="stackly-blog-tag">Investment</span>
+            <span class="stackly-blog-tag">Trends</span>
+          </div>
+          <div class="stackly-blog-footer">
+            <a href="404page.html" class="stackly-blog-read-btn">Read More</a>
+            <span class="stackly-blog-meta">8 min read</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+
+  </main>
+
+
+
+ 
+
+  <!-- START FOOTER (replace existing footer block) -->
+<footer class="site-footer broker-footer" role="contentinfo">
+  <div class="container footer-wrap">
+    <div class="footer-col footer-brand">
+      <a href="/" class="footer-logo-link" aria-label="Stackly home">
+        <img src="assets/images/logo3.webp" alt="Stackly logo" class="footer-logo">
+      </a>
+      <p class="footer-desc">
+        Stackly — Brokerage Solutions. We simplify property transactions with technology-driven brokerage services,
+        verified listings and end-to-end support for buyers, sellers and landlords.
+      </p>
+    </div>
+
+    <div class="footer-col footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-services">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="brokage.html">Brokerage Solutions</a></li>
+        <li><a href="properties.html">Property Management</a></li>
+        <li><a href="404page.html">Tenant Verification</a></li>
+        <li><a href="404page.html">Documentation Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-news">
+      <h4>Stay Connected</h4>
+      <p class="muted">Subscribe to our newsletter for market updates, new listings and offers — no spam.</p>
+
+      <form id="footerNewsletterForm" class="footer-news-form" novalidate>
+        <label for="footerNewsletterEmail" class="sr-only">Email address</label>
+        <div class="input-row">
+          <input id="footerNewsletterEmail" name="email" type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn subscribe-btn" aria-label="Subscribe">→</button>
+        </div>
+        <div id="footerNewsletterMsg" class="footer-news-msg" aria-live="polite"></div>
+      </form>
+
+      <div class="footer-socials">
+        <a href="404page.html" aria-label="Facebook" class="social-btn">f</a>
+        <a href="404page.html" aria-label="Twitter"  class="social-btn">t</a>
+        <a href="404page.html" aria-label="Instagram" class="social-btn">ig</a>
+        <a href="404page.html" aria-label="LinkedIn" class="social-btn">in</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div class="copyright">© <span id="footerYear"></span> Stackly Brokerage Solutions. All rights reserved.</div>
+      <div class="madeby">Built with care • Stackly</div>
+    </div>
+  </div>
+</footer>
+<!-- END FOOTER -->
+<!-- END FOOTER -->
+
+<script>
+(function(){
+  const grid = document.getElementById('prop-grid');
+  const cards = Array.from(grid.querySelectorAll('.stackly-prop-card'));
+
+  const qSearch = document.getElementById('filter-search');
+  const qMin = document.getElementById('price-min');
+  const qMax = document.getElementById('price-max');
+  const qBhk = document.getElementById('filter-bhk');
+  const qFurn = document.getElementById('filter-furn');
+  const qListing = document.getElementById('filter-listing');
+  const qSort = document.getElementById('filter-sort');
+
+  const btnApply = document.getElementById('apply-filters');
+  const btnReset = document.getElementById('reset-filters');
+
+  // helper to read multiple select values
+  function multiSelectValues(selectEl){
+    return Array.from(selectEl.selectedOptions).map(o=>o.value);
+  }
+
+  function applyFilters(){
+    const search = qSearch.value.trim().toLowerCase();
+    const min = parseInt(qMin.value) || 0;
+    const max = parseInt(qMax.value) || Infinity;
+    const bhkValues = multiSelectValues(qBhk);
+    const furn = qFurn.value;
+    const listing = qListing.value;
+    const sort = qSort.value;
+
+    // filter
+    let visible = cards.filter(card=>{
+      const price = Number(card.dataset.price) || 0;
+      const city = (card.dataset.city||'').toLowerCase();
+      const locality = (card.dataset.locality||'').toLowerCase();
+      const bhk = (card.dataset.bhk||'').toLowerCase();
+      const furnishing = (card.dataset.furnishing||'').toLowerCase();
+      const listType = (card.dataset.listing||'').toLowerCase();
+
+      // search (city or locality)
+      if(search){
+        if(!(city.includes(search) || locality.includes(search))) return false;
+      }
+      // price
+      if(price < min || price > max) return false;
+      // bhk (if any selected)
+      if(bhkValues.length){
+        // match if card's bhk equals any selected (support "4+" values)
+        let match = bhkValues.some(v=>{
+          if(v === "4") return Number(bhk) >= 4;
+          return bhk === v;
+        });
+        if(!match) return false;
+      }
+      // furnishing
+      if(furn !== 'any' && furnishing && furnishing !== furn.toLowerCase()) return false;
+      // listing
+      if(listing !== 'any' && listType !== listing) return false;
+
+      return true;
+    });
+
+    // sort
+    if(sort === 'price-asc'){
+      visible.sort((a,b)=> (Number(a.dataset.price)||0) - (Number(b.dataset.price)||0));
+    } else if(sort === 'price-desc'){
+      visible.sort((a,b)=> (Number(b.dataset.price)||0) - (Number(a.dataset.price)||0));
+    } else if(sort === 'newest'){
+      visible.sort((a,b)=> new Date(b.dataset.added) - new Date(a.dataset.added));
+    }
+
+    // render (hide others)
+    cards.forEach(c => c.style.display = 'none');
+    visible.forEach(c => c.style.display = '');
+
+    // if none visible, show friendly message
+    const emptyMsgId = 'no-results-msg';
+    let existing = document.getElementById(emptyMsgId);
+    if(visible.length === 0){
+      if(!existing){
+        const msg = document.createElement('div');
+        msg.id = emptyMsgId;
+        msg.style.textAlign = 'center';
+        msg.style.padding = '30px';
+        msg.style.color = '#666';
+        msg.textContent = 'No properties matched your filters.';
+        grid.parentNode.insertBefore(msg, grid.nextSibling);
+      }
+    } else {
+      if(existing) existing.remove();
+    }
+  }
+
+  btnApply.addEventListener('click', applyFilters);
+
+  btnReset.addEventListener('click', ()=>{
+    qSearch.value = '';
+    qMin.value = '';
+    qMax.value = '';
+    qBhk.querySelectorAll('option').forEach(o=>o.selected=false);
+    qFurn.value = 'any';
+    qListing.value = 'any';
+    qSort.value = 'default';
+    applyFilters();
+  });
+
+  // also apply when pressing Enter on search
+  qSearch.addEventListener('keyup', (e)=>{ if(e.key === 'Enter') applyFilters(); });
+
+  // initial show (in case some cards were hidden by default)
+  applyFilters();
+})();
+</script>
+  <!-- JS -->
+  <script src="script.js" defer></script>
+</body>
+</html>
