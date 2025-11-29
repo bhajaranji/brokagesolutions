@@ -3044,3 +3044,103 @@ body.menu-open #hamburger{ visibility: hidden; }
   outline: none;
   box-shadow: none;
 }
+
+
+
+
+/* ---------- Header: make logo + hamburger align on one line ---------- */
+
+/* base header row (apply to your header inner wrapper) */
+header > .container,
+header .site-inner,
+header .header-inner {              /* try common wrapper selectors */
+  display: flex;
+  align-items: center;              /* vertically center items */
+  justify-content: space-between;   /* logo left, hamburger right */
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 16px;               /* adjust as needed */
+}
+
+/* logo: ensure it doesn't exceed header height */
+.logo,
+.site-logo,
+.header-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  height: 50px;                     /* header height */
+  line-height: 1;
+}
+.logo img,
+.site-logo img,
+.header-logo img {
+  max-height: 50px;                 /* keeps image aligned */
+  width: auto;
+  display: block;
+}
+
+/* hamburger: normalize size and remove any absolute offsets */
+.hamburger,
+#hamburger,
+.hamburger-btn,
+.mobile-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: static !important;      /* override absolute/fixed positioning */
+  top: auto !important;
+  right: auto !important;
+  margin: 0;
+}
+
+/* hamburger lines (visual) */
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  margin: 3px 0;
+  border-radius: 2px;
+}
+
+/* mobile-only visibility (adjust breakpoint to your site's) */
+@media (max-width: 900px) {
+  /* hide desktop nav if present */
+  .site-nav:not(.mobile-only) { display: none !important; }
+
+  /* show mobile-only elements */
+  .mobile-only { display: block !important; }
+
+  /* make sure header uses the flex row we set above */
+  header > .container,
+  header .site-inner,
+  header .header-inner { padding-left: 14px; padding-right: 14px; }
+
+  /* ensure nav overlay doesn't cover header area (starts under header) */
+  .site-nav.mobile-only,
+  nav#site-nav {
+    position: fixed;
+    inset: 0;
+    top: 64px;                /* leave header visible (header height) */
+    padding-top: 14px;
+    overflow: auto;
+    background: var(--primary); /* or your overlay color */
+    z-index: 120;
+  }
+}
+
+/* desktop: ensure mobile-only hidden */
+@media (min-width: 901px) {
+  .mobile-only { display: none !important; }
+}

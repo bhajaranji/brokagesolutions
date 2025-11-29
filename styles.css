@@ -3165,3 +3165,196 @@ to { opacity:1; transform: translateY(0); }
   color: var(--accent);
 }
 
+
+
+
+
+
+
+
+/* -------------------------
+   MOBILE PANEL — Unified Styles
+   Replace your current mobile-panel CSS with this
+   ------------------------- */
+
+.mobile-panel {
+  position: fixed;
+  inset: 0;
+  background: var(--primary);
+  padding: 18px;               /* slightly smaller padding for consistent spacing */
+  z-index: 120;
+  overflow: auto;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* header */
+.mobile-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.mobile-logo {
+  height: 60px;
+  display: inline-block;
+}
+.mobile-logo img { height: 100%; width: auto; display: block; }
+
+/* close button */
+.close-btn {
+  background: transparent;
+  border: 0;
+  color: var(--light);
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 8px;
+}
+.close-btn:focus { outline: 2px solid rgba(212,175,55,0.18); }
+
+/* NAV LIST - unified box model */
+.mobile-nav {
+  width: 100%;
+}
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ensure every li is full width */
+.mobile-nav li {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* base style shared by links and toggle buttons */
+.mobile-nav a,
+.mobile-drop-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* keeps label left and arrow/right items aligned */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 12px;              /* consistent padding for each item */
+  font-size: 16px;                /* consistent font size */
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--light);
+  background: transparent;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+}
+
+/* hover / active */
+.mobile-nav a:hover,
+.mobile-drop-toggle:hover {
+  background: rgba(255,255,255,0.02);
+  color: var(--accent);
+}
+
+/* Arrow inside toggle */
+.mobile-drop-toggle .arrow {
+  transition: transform 220ms var(--transition), color 160ms ease;
+  font-size: 14px;
+  margin-left: 8px;
+  flex: 0 0 auto;
+}
+
+/* expanded state */
+.mobile-drop-toggle[aria-expanded="true"] .arrow {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+/* Submenu (collapsed) — animate with max-height for smooth open/close */
+.mobile-dropdown {
+  display: block;                  /* keep it in flow so widths align */
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 260ms ease, padding 180ms ease;
+  padding-left: 12px;              /* indent items slightly */
+  margin-top: 6px;
+  box-sizing: border-box;
+}
+
+/* submenu open */
+.mobile-dropdown.show {
+  max-height: 480px;               /* large enough for multiple items */
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* submenu items */
+.mobile-dropdown li {
+  width: 100%;
+  margin: 0;
+}
+.mobile-dropdown li a {
+  display: block;
+  padding: 10px 12px;
+  font-weight: 600;
+  color: var(--light);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 15px;
+}
+.mobile-dropdown li a:hover {
+  background: rgba(255,255,255,0.03);
+  color: var(--accent);
+}
+
+/* Login button (full width, consistent with nav items) */
+.mobile-login {
+  margin-top: 12px;
+}
+.mobile-login a,
+.mobile-login .login-btn {
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* prefer accent background for login */
+.mobile-login .login-btn {
+  background: var(--accent);
+  color: var(--primary);
+  border: 0;
+  cursor: pointer;
+}
+.mobile-login .login-btn:hover {
+  filter: brightness(.98);
+}
+
+/* Accessibility: focus style for keyboard users */
+.mobile-nav a:focus,
+.mobile-drop-toggle:focus,
+.mobile-dropdown li a:focus,
+.mobile-login .login-btn:focus {
+  outline: 3px solid rgba(212,175,55,0.14);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Small adjustment for very small screens */
+@media (max-width: 380px) {
+  .mobile-nav a,
+  .mobile-drop-toggle { padding: 12px 10px; font-size: 15px; }
+  .mobile-dropdown li a { font-size: 14px; padding: 8px 10px; }
+}
