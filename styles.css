@@ -395,7 +395,93 @@ body {
 
 
 
+/* ---------- ALIGN SEARCH BUTTON ---------- */
+/* Make each field inline and vertically centered */
+.hero-search-form .row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center; /* ensures vertical centering of children */
+}
 
+/* change fields from column to row so select/input and button align */
+.hero-search-form .field {
+  display: flex;
+  flex-direction: row;    /* <-- was column */
+  align-items: center;    /* vertical center inside each field */
+  gap: 8px;
+}
+
+/* Make the wide field take available space */
+.hero-search-form .field.wide {
+  flex: 1 1 420px;
+  min-width: 220px;
+}
+
+/* Small fixed fields keep fixed width but are vertically centered */
+.hero-search-form .field.small {
+  flex: 0 0 120px; /* keeps consistent width but allows slight shrink */
+  min-width: 110px;
+}
+
+/* Unified control heights and styles */
+.hero-search-form .field input,
+.hero-search-form .field select {
+  height: 48px;           /* equal height */
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,225,221,0.06);
+  background: rgba(224,225,221,0.02);
+  font-size: 15px;
+  color: var(--light);
+  width: 100%;
+  min-width: 0;           /* prevents overflow in flex */
+  box-sizing: border-box;
+}
+
+/* Action cell: center the button */
+.hero-search-form .field.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+/* Make button same height and aligned */
+.hero-search-form .search-btn {
+  height: 48px;           /* matches inputs */
+  padding: 0 20px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* small tweak if button text wraps on narrow screens */
+.hero-search-form .search-btn { white-space: nowrap; }
+
+/* ---------- RESPONSIVE: stack on small screens ---------- */
+@media (max-width: 980px) {
+  .hero-search-form .row {
+    /* allow fields to wrap into multiple rows in natural order */
+    align-items: stretch;
+  }
+
+  /* make wide input full width when wrapped */
+  .hero-search-form .field.wide { flex-basis: 100%; min-width: 100%; }
+
+  /* make small selects more flexible on small screens */
+  .hero-search-form .field.small { flex: 0 0 40%; min-width: 140px; }
+
+  /* make button full width when it sits on its own row */
+  .hero-search-form .field.action { flex-basis: 100%; justify-content: flex-start; }
+  .hero-search-form .search-btn { width: 140px; } /* keeps button visible; change to 100% if you prefer full width */
+}
+
+@media (max-width: 480px) {
+  .hero-search-form .search-btn { width: 100%; }
+  .hero-search-form .field.small { flex-basis: 100%; min-width: 100%; }
+}
 
 
 
